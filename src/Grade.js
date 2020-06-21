@@ -16,6 +16,8 @@ export default class Grade {
     }
 
     getPercent() {
-        return `${(this.grade / this.total) * 100}%`
+        return `${Number.parseFloat(
+            (this.grade / this.total) * 100
+        ).toPrecision(4)}%`
     }
 }
