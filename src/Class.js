@@ -38,14 +38,20 @@ export default class Class {
             return [NaN, NaN, NaN]
         }
 
-        let pointsEarned = this.grades.reduce((acc, grade) => acc + grade.grade, 0)
+        let pointsEarned = this.grades.reduce(
+            (acc, grade) => acc + grade.grade,
+            0
+        )
         let pointsPossible = this.grades.reduce(
-            (acc, grade) => acc + grade.total, 0
+            (acc, grade) => acc + grade.total,
+            0
         )
 
         let totalGrade = NaN
-        if(!Number.isNaN(pointsEarned/pointsPossible)) {
-            totalGrade = Number.parseFloat((pointsEarned/pointsPossible) *100).toPrecision(4)
+        if (!Number.isNaN(pointsEarned / pointsPossible)) {
+            totalGrade = Number.parseFloat(
+                (pointsEarned / pointsPossible) * 100
+            ).toPrecision(4)
         }
 
         return [pointsEarned, pointsPossible, `${totalGrade}%`]
@@ -56,24 +62,26 @@ export default class Class {
     }
 
     getWeighted() {
-
         if (this.grades.length < 1) {
             return NaN
         }
 
-        let pointsEarned = this.grades.reduce((acc, grade) => acc + grade.grade * this.types[grade.type], 0)
+        let pointsEarned = this.grades.reduce(
+            (acc, grade) => acc + grade.grade * this.types[grade.type],
+            0
+        )
         let pointsPossible = this.grades.reduce(
-            (acc, grade) => acc + grade.total * this.types[grade.type], 0
+            (acc, grade) => acc + grade.total * this.types[grade.type],
+            0
         )
 
         let totalGrade = NaN
-        if(!Number.isNaN(pointsEarned/pointsPossible)) {
-            totalGrade = Number.parseFloat((pointsEarned/pointsPossible) *100).toPrecision(4)
+        if (!Number.isNaN(pointsEarned / pointsPossible)) {
+            totalGrade = Number.parseFloat(
+                (pointsEarned / pointsPossible) * 100
+            ).toPrecision(4)
         }
 
         return `${totalGrade}%`
-
     }
-    
-
 }

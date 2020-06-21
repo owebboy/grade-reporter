@@ -207,8 +207,6 @@ export default class App {
         submit.value = 'add type'
         form.append(submit)
 
-        
-
         form.addEventListener('submit', e => {
             e.preventDefault()
 
