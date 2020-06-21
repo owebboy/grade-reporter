@@ -3,23 +3,8 @@ import Class from './Class'
 import style from "./style.css"
 import netlifyIdentity from "netlify-identity-widget"
 
-window.addEventListener('load', async () => {
-
-    
-    netlifyIdentity.init({
-        locale: 'en' // defaults to 'en'
-    });
-
-    netlifyIdentity.open(); // open the modal
-    netlifyIdentity.on('login', user => console.log('login', user));
-
-    // Close the modal
-    // netlifyIdentity.close();
-
-    const user = netlifyIdentity.currentUser();
-
-    if(user) {
-        let app = new App(document.querySelector('#app'))
+const enableApp = () => {
+    let app = new App(document.querySelector('#app'))
 
         // app.addClass(new Class("cse325"))
     
@@ -30,6 +15,29 @@ window.addEventListener('load', async () => {
         app.showClasses()
     
         app.showSummary()
+}
+
+window.addEventListener('load', async () => {
+
+    
+    netlifyIdentity.init({
+        locale: 'en' // defaults to 'en'
+    });
+
+    
+    
+
+    // Close the modal
+    // netlifyIdentity.close();
+
+    const user = netlifyIdentity.currentUser();
+
+    if(user) {
+        enableApp()
+    } else {
+        
+        netlifyIdentity.open();
+        netlifyIdentity.on("login", (user) => enableApp())
     }
 
     
