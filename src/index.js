@@ -3,7 +3,7 @@ import Class from './Class'
 import style from "./style.css"
 import netlifyIdentity from "netlify-identity-widget"
 
-const enableApp = () => {
+const enableApp = async () => {
     let app = new App(document.querySelector('#app'))
 
         // app.addClass(new Class("cse325"))
