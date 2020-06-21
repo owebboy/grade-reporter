@@ -1,0 +1,65 @@
+html, input, button, select {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9em;
+    color: #111;
+}
+
+input, select, button {
+    padding: .2em;
+    margin: .1em;
+}
+
+.classes {
+    margin-bottom: 1em;
+}
+
+form {
+    margin-bottom: 1em;
+}
+
+input[type='number'] {
+    width: 70px;
+}
+
+table {
+    margin-top: 1em;
+    width: 100%;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1em;
+}
+
+th {
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+td {
+    border: 1px solid;
+}
+
+.name {
+    font-style: italic;
+}
+
+@media screen and (min-width: 900px) {
+    html {
+        margin: 1em 20%;
+    }
+}
+@media print {
+    .actions {
+        display: none;
+    }
+    form {
+        display: none;
+    }
+}
+@page {
+    margin: 0.5in;
+}
