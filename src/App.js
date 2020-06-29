@@ -4,7 +4,7 @@ import Class from './Class'
 export default class App {
     constructor(dom) {
         this.db = new PouchDB('grades')
-        this.remoteDB = new PouchDB(`https://admin:fibonacci@sike.dev/couchdb/test`)
+        this.remoteDB = new PouchDB(`https://admin:fibonacci@sike.dev/couchdb/grades`)
 
         // replicate the DB to start
         this.db.replicate.to(this.remoteDB).then(result => {
