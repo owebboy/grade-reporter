@@ -4,6 +4,29 @@ import Class from './Class'
 export default class App {
     constructor(dom) {
         this.db = new PouchDB('grades')
+        this.remoteDB = new PouchDB(`https://admin:fibonacci@sike.dev/couchdb/test`)
+
+        // replicate the DB to start
+        this.db.replicate.to(this.remoteDB).then(result => {
+            // handle 'completed' result
+            console.log(result)
+          }).catch(err => {
+            console.log(err);
+          });
+
+        // set up sync
+        this.db.sync(this.remoteDB, {
+            live: true,
+            retry: true
+          }).on('change', function (change) {
+              console.log("CHANGE", change)
+          }).on('paused', function (info) {
+            console.log("PAUSED", info)
+        }).on('active', function (info) {
+            console.log("ACTIVE", info)
+        }).on('error', function (err) {
+            console.log("ERROR", err)
+        });
 
         this.classes = []
         this.dom = dom
