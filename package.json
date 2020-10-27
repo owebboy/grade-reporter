@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "netlify-identity-widget": "^1.6.0",
-    "pouchdb": "^7.2.1"
+    "pouchdb": "^7.2.2"
   },
   "devDependencies": {
     "css-loader": "^3.6.0",
