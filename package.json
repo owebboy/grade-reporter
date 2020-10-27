@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "netlify-identity-widget": "^1.6.0",
+    "netlify-identity-widget": "^1.9.1",
     "pouchdb": "^7.2.1"
   },
   "devDependencies": {
